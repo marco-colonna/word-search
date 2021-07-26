@@ -3,11 +3,13 @@
 
 using namespace std;
 
-void displayGrid(vector<vector<char>> & matrix);
+void displayGrid(vector<vector<char>> & grid);
+
+void horizontalString(vector<vector<char>> & grid);
 
 int main()
 {
-    vector<vector<char>> grid
+    vector<vector<char>> matrix
     {
         { 'W', 'V', 'E', 'R', 'T', 'I', 'C', 'A', 'L', 'L'},
         { 'R', 'O', 'O', 'A', 'F', 'F', 'L', 'S', 'A', 'B' },
@@ -21,17 +23,17 @@ int main()
         { 'H', 'E', 'L', 'W', 'S', 'L', 'E', 'U', 'T', 'H' }
     };
 
-    displayGrid(grid);
+    displayGrid(matrix);
 }
 
-void displayGrid(vector<vector<char>> & matrix)
+void displayGrid(vector<vector<char>> & grid)
 {
     cout << endl;
-    for (int i = 0; i < matrix.size(); ++i)
+    for (int i = 0; i < grid.size(); ++i)
     {
-        for (int j = 0; j < matrix[i].size(); ++j)
+        for (int j = 0; j < grid[i].size(); ++j)
         {
-            cout << " " << matrix[i][j];
+            cout << " " << grid[i][j];
         }
         cout << endl;
     }
