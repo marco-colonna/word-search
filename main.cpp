@@ -3,6 +3,8 @@
 
 using namespace std;
 
+void displayGrid(vector<vector<char>> & matrix);
+
 int main()
 {
     vector<vector<char>> grid
@@ -18,4 +20,20 @@ int main()
         { 'K', 'O', 'D', 'I', 'D', 'E', 'D', 'R', 'C', 'D' },
         { 'H', 'E', 'L', 'W', 'S', 'L', 'E', 'U', 'T', 'H' }
     };
+
+    displayGrid(grid);
+}
+
+void displayGrid(vector<vector<char>> & matrix)
+{
+    cout << endl;
+    for (int i = 0; i < matrix.size(); ++i)
+    {
+        for (int j = 0; j < matrix[i].size(); ++j)
+        {
+            cout << " " << matrix[i][j];
+        }
+        cout << endl;
+    }
+    cout << endl;
 }
