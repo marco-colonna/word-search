@@ -1,11 +1,12 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
 using namespace std;
 
 void displayGrid(vector<vector<char>> & grid);
 
-void horizontalString(vector<vector<char>> & grid);
+void horizontalStrings(vector<vector<char>> & grid, vector<string> & strings);
 
 int main()
 {
@@ -23,7 +24,14 @@ int main()
         { 'H', 'E', 'L', 'W', 'S', 'L', 'E', 'U', 'T', 'H' }
     };
 
+    vector<string> hStrings(10, "");
+
     displayGrid(matrix);
+
+    horizontalStrings(matrix, hStrings);
+
+    for (int i = 0; i < 10; ++i)
+        cout << hStrings[i] << endl;
 }
 
 void displayGrid(vector<vector<char>> & grid)
@@ -38,4 +46,15 @@ void displayGrid(vector<vector<char>> & grid)
         cout << endl;
     }
     cout << endl;
+}
+
+void horizontalStrings(vector<vector<char>> & grid, vector<string> & strings)
+{
+    for (int i = 0; i < grid.size(); ++i)
+    {
+        for (int j = 0; j < grid[i].size(); ++j)
+        {
+            strings[i] += grid[i][j];
+        }
+    }
 }
