@@ -6,6 +6,8 @@ using namespace std;
 
 void displayGrid(vector<vector<char>> & grid);
 
+void displayStrings(vector<string> & strings);
+
 void horizontalStrings(vector<vector<char>> & grid, vector<string> & strings);
 
 int main()
@@ -30,8 +32,7 @@ int main()
 
     horizontalStrings(matrix, hStrings);
 
-    for (int i = 0; i < 10; ++i)
-        cout << hStrings[i] << endl;
+    displayStrings(hStrings);
 }
 
 void displayGrid(vector<vector<char>> & grid)
@@ -46,6 +47,12 @@ void displayGrid(vector<vector<char>> & grid)
         cout << endl;
     }
     cout << endl;
+}
+
+void displayStrings(vector<string> & strings)
+{
+    for (int i = 0; i < strings.size(); ++i)
+        cout << strings[i] << endl;
 }
 
 void horizontalStrings(vector<vector<char>> & grid, vector<string> & strings)
