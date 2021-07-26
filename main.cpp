@@ -1,32 +1,21 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
 int main()
 {
-    const int size1 = 10;
-    const int size2 = 10;
-
-    int array[size1][size2] = {};
-
-    // filling array with sum of indices
-    for (int i = 0; i < size1; ++i)
-        for (int j = 0; j < size2; ++j)
-            array[i][j] = (i + j);
-
-    // printing filled array
-    for (int i = 0; i < size1; ++i)
-        for (int j = 0; j < size2; ++j)
-            cout << array[i][j] << " ";
-    cout << endl;
-
-    // printing filled array, formatted as a grid
-    cout << endl;
-    for (int i = 0; i < size1; ++i)
+    vector<vector<char>> grid
     {
-        cout << " ";
-        for (int j = 0; j < size2; ++j)
-            cout << array[i][j] << "\t";
-        cout << endl;
-    }
+        { 'W', 'V', 'E', 'R', 'T', 'I', 'C', 'A', 'L', 'L'},
+        { 'R', 'O', 'O', 'A', 'F', 'F', 'L', 'S', 'A', 'B' },
+        { 'A', 'C', 'R', 'I', 'L', 'I', 'A', 'T', 'O', 'A' },
+        { 'N', 'D', 'O', 'D', 'K', 'O', 'N', 'W', 'D', 'C' },
+        { 'D', 'R', 'K', 'E', 'S', 'O', 'O', 'D', 'D', 'K' },
+        { 'O', 'E', 'E', 'P', 'Z', 'E', 'G', 'L', 'I', 'W' },
+        { 'M', 'S', 'I', 'I', 'H', 'O', 'A', 'E', 'R', 'A' },
+        { 'A', 'L', 'R', 'K', 'R', 'R', 'I', 'R', 'E', 'R' },
+        { 'K', 'O', 'D', 'I', 'D', 'E', 'D', 'R', 'C', 'D' },
+        { 'H', 'E', 'L', 'W', 'S', 'L', 'E', 'U', 'T', 'H' }
+    };
 }
