@@ -10,6 +10,8 @@ void displayStrings(vector<string> & strings);
 
 void horizontalStrings(vector<vector<char>> & grid, vector<string> & strings);
 
+void verticalStrings(vector<vector<char>> & grid, vector<string> & strings);
+
 int main()
 {
     vector<vector<char>> matrix
@@ -28,11 +30,17 @@ int main()
 
     vector<string> hStrings(10, "");
 
+    vector<string> vStrings(10, "");
+
     displayGrid(matrix);
 
     horizontalStrings(matrix, hStrings);
 
+    verticalStrings(matrix, vStrings);
+
     displayStrings(hStrings);
+
+    displayStrings(vStrings);
 }
 
 void displayGrid(vector<vector<char>> & grid)
@@ -62,6 +70,17 @@ void horizontalStrings(vector<vector<char>> & grid, vector<string> & strings)
         for (int j = 0; j < grid[i].size(); ++j)
         {
             strings[i] += grid[i][j];
+        }
+    }
+}
+
+void verticalStrings(vector<vector<char>> & grid, vector<string> & strings)
+{
+    for (int i = 0; i < grid.size(); ++i)
+    {
+        for (int j = 0; j < grid.size(); ++j)
+        {
+            strings[j] += grid[i][j];
         }
     }
 }
