@@ -78,7 +78,7 @@ void verticalStrings(vector<vector<char>> & grid, vector<string> & strings)
 {
     for (int i = 0; i < grid.size(); ++i)
     {
-        for (int j = 0; j < grid.size(); ++j)
+        for (int j = 0; j < grid[i].size(); ++j)
         {
             strings[j] += grid[i][j];
         }
