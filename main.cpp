@@ -14,6 +14,8 @@ void verticalStrings(vector<vector<char>> & grid, vector<string> & strings);
 
 void mainDiagStrings(vector<vector<char>> & grid, vector<string> & strings);
 
+void antiDiagStrings(vector<vector<char>> & grid, vector<string> & strings);
+
 int main()
 {
     vector<vector<char>> matrix
@@ -36,6 +38,8 @@ int main()
 
     vector<string> mdStrings(19, "");
 
+    vector<string> adStrings(19, "");
+
     displayGrid(matrix);
 
     horizontalStrings(matrix, hStrings);
@@ -44,11 +48,15 @@ int main()
 
     mainDiagStrings(matrix, mdStrings);
 
+    antiDiagStrings(matrix, adStrings);
+
     displayStrings(hStrings);
 
     displayStrings(vStrings);
 
     displayStrings(mdStrings);
+
+    displayStrings(adStrings);
 }
 
 void displayGrid(vector<vector<char>> & grid)
@@ -100,6 +108,17 @@ void mainDiagStrings(vector<vector<char>> & grid, vector<string> & strings)
         for (int j = 0; j < grid[i].size(); ++j)
         {
             strings[9 + i - j] += grid[i][j];
+        }
+    }
+}
+
+void antiDiagStrings(vector<vector<char>> & grid, vector<string> & strings)
+{
+    for (int i = 0; i < grid.size(); ++i)
+    {
+        for (int j = 0; j < grid[i].size(); ++j)
+        {
+            strings[i + j] += grid[i][j];
         }
     }
 }
