@@ -8,14 +8,6 @@ void displayGrid(vector<vector<char>> & grid);
 
 void displayStrings(vector<string> & strings);
 
-void horizontalStrings(vector<vector<char>> & grid, vector<string> & strings);
-
-void verticalStrings(vector<vector<char>> & grid, vector<string> & strings);
-
-void mainDiagStrings(vector<vector<char>> & grid, vector<string> & strings);
-
-void antiDiagStrings(vector<vector<char>> & grid, vector<string> & strings);
-
 void getStrings(vector<vector<char>> & grid, vector<string> & strings, int type);
 
 int main()
@@ -43,18 +35,6 @@ int main()
     vector<string> adStrings(19, "");
 
     displayGrid(matrix);
-
-    /*
-
-    horizontalStrings(matrix, hStrings);
-
-    verticalStrings(matrix, vStrings);
-
-    mainDiagStrings(matrix, mdStrings);
-
-    antiDiagStrings(matrix, adStrings);
-
-    */
 
     getStrings(matrix, hStrings, 0);
 
@@ -91,50 +71,6 @@ void displayStrings(vector<string> & strings)
 {
     for (int i = 0; i < strings.size(); ++i)
         cout << strings[i] << endl;
-}
-
-void horizontalStrings(vector<vector<char>> & grid, vector<string> & strings)
-{
-    for (int i = 0; i < grid.size(); ++i)
-    {
-        for (int j = 0; j < grid[i].size(); ++j)
-        {
-            strings[i] += grid[i][j];
-        }
-    }
-}
-
-void verticalStrings(vector<vector<char>> & grid, vector<string> & strings)
-{
-    for (int i = 0; i < grid.size(); ++i)
-    {
-        for (int j = 0; j < grid[i].size(); ++j)
-        {
-            strings[j] += grid[i][j];
-        }
-    }
-}
-
-void mainDiagStrings(vector<vector<char>> & grid, vector<string> & strings)
-{
-    for (int i = 0; i < grid.size(); ++i)
-    {
-        for (int j = 0; j < grid[i].size(); ++j)
-        {
-            strings[9 + i - j] += grid[i][j];
-        }
-    }
-}
-
-void antiDiagStrings(vector<vector<char>> & grid, vector<string> & strings)
-{
-    for (int i = 0; i < grid.size(); ++i)
-    {
-        for (int j = 0; j < grid[i].size(); ++j)
-        {
-            strings[i + j] += grid[i][j];
-        }
-    }
 }
 
 // 0 - horizontal, 1 - vertical, 2 - main diagonal, 3 - antidiagonal
