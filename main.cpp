@@ -16,6 +16,8 @@ void mainDiagStrings(vector<vector<char>> & grid, vector<string> & strings);
 
 void antiDiagStrings(vector<vector<char>> & grid, vector<string> & strings);
 
+void getStrings(vector<vector<char>> & grid, vector<string> & strings, int type);
+
 int main()
 {
     vector<vector<char>> matrix
@@ -42,6 +44,8 @@ int main()
 
     displayGrid(matrix);
 
+    /*
+
     horizontalStrings(matrix, hStrings);
 
     verticalStrings(matrix, vStrings);
@@ -49,6 +53,16 @@ int main()
     mainDiagStrings(matrix, mdStrings);
 
     antiDiagStrings(matrix, adStrings);
+
+    */
+
+    getStrings(matrix, hStrings, 0);
+
+    getStrings(matrix, vStrings, 1);
+    
+    getStrings(matrix, mdStrings, 2);
+
+    getStrings(matrix, adStrings, 3);
 
     displayStrings(hStrings);
 
@@ -119,6 +133,36 @@ void antiDiagStrings(vector<vector<char>> & grid, vector<string> & strings)
         for (int j = 0; j < grid[i].size(); ++j)
         {
             strings[i + j] += grid[i][j];
+        }
+    }
+}
+
+// 0 - horizontal, 1 - vertical, 2 - main diagonal, 3 - antidiagonal
+void getStrings(vector<vector<char>> & grid, vector<string> & strings, int type)
+{
+    for (int i = 0; i < grid.size(); ++i)
+    {
+        for (int j = 0; j < grid.size(); ++j)
+        {
+            int index = 0;
+            switch (type)
+            {
+                case 0:
+                    index = i;
+                    break;
+                case 1:
+                    index = j;
+                    break;
+                case 2:
+                    index = 9 + i - j;
+                    break;
+                case 3:
+                    index = i + j;
+                    break;
+                default:
+                    return;
+            }
+            strings[index] += grid[i][j];
         }
     }
 }
