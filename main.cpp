@@ -26,31 +26,22 @@ int main()
         { 'H', 'E', 'L', 'W', 'S', 'L', 'E', 'U', 'T', 'H' }
     };
 
-    vector<string> hStrings(10, "");
-
-    vector<string> vStrings(10, "");
-
-    vector<string> mdStrings(19, "");
-
-    vector<string> adStrings(19, "");
+    vector<vector<string>> strings
+    {
+        { "", "", "", "", "", "", "", "", "", "" },
+        { "", "", "", "", "", "", "", "", "", "" },
+        { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" },
+        { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" }
+    };
 
     displayGrid(matrix);
 
-    getStrings(matrix, hStrings, 0);
+    for (int i = 0; i < strings.size(); ++i)
+    {
+        getStrings(matrix, strings[i], i);
 
-    getStrings(matrix, vStrings, 1);
-    
-    getStrings(matrix, mdStrings, 2);
-
-    getStrings(matrix, adStrings, 3);
-
-    displayStrings(hStrings);
-
-    displayStrings(vStrings);
-
-    displayStrings(mdStrings);
-
-    displayStrings(adStrings);
+        displayStrings(strings[i]);
+    }
 }
 
 void displayGrid(vector<vector<char>> & grid)
