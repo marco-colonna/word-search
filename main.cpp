@@ -10,6 +10,8 @@ void displayStrings(vector<string> & strings);
 
 void getStrings(vector<vector<char>> & grid, vector<string> & strings, int type);
 
+bool findString(vector<vector<string>> & strings, string key);
+
 int main()
 {
     vector<vector<char>> matrix
@@ -26,6 +28,8 @@ int main()
         { 'H', 'E', 'L', 'W', 'S', 'L', 'E', 'U', 'T', 'H' }
     };
 
+    vector<string> key { "SEEK", "FIND", "RANDOM", "SLEUTH", "BACKWARD", "VERTICAL", "DIAGONAL", "WIKIPEDIA", "HORIZONTAL", "WORDSEARCH" };
+
     vector<vector<string>> strings
     {
         { "", "", "", "", "", "", "", "", "", "" },
@@ -41,6 +45,11 @@ int main()
         getStrings(matrix, strings[i], i);
 
         displayStrings(strings[i]);
+    }
+
+    for (int i = 0; i < key.size(); ++i)
+    {
+        cout << findString(strings, key[i]) << endl;
     }
 }
 
@@ -92,4 +101,19 @@ void getStrings(vector<vector<char>> & grid, vector<string> & strings, int type)
             strings[index] += grid[i][j];
         }
     }
+}
+
+bool findString(vector<vector<string>> & strings, string key)
+{
+    for (int i = 0; i < strings.size(); ++i)
+    {
+        for (int j = 0; j < strings[i].size(); ++j)
+        {
+            size_t found = strings[i][j].find(key);
+
+            if (found != string::npos)
+                return true;
+        }
+    }
+    return false;
 }
