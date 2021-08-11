@@ -14,6 +14,8 @@ bool findString(vector<vector<string>> & strings, string key);
 
 bool findStringReverse(vector<vector<string>> & strings, string key);
 
+void foundString(string key, int i, int j, size_t found);
+
 int main()
 {
     vector<vector<char>> matrix
@@ -51,9 +53,9 @@ int main()
 
     for (int i = 0; i < key.size(); ++i)
     {
-        cout << findString(strings, key[i]) << endl;
+        findString(strings, key[i]);
 
-        cout << findStringReverse(strings, key[i]) << endl;
+        findStringReverse(strings, key[i]);
     }
 }
 
@@ -116,7 +118,10 @@ bool findString(vector<vector<string>> & strings, string key)
             size_t found = strings[i][j].find(key);
 
             if (found != string::npos)
+            {
+                foundString(key, i, j, found);
                 return true;
+            }
         }
     }
     return false;
@@ -133,8 +138,17 @@ bool findStringReverse(vector<vector<string>> & strings, string key)
             size_t found = reversed.find(key);
 
             if (found != string::npos)
+            {
+                foundString(key, i, j, found);
                 return true;
+            }
         }
     }
     return false;
+}
+
+void foundString(string key, int i, int j, size_t found)
+{
+    cout << "Found " << key << " @" << " i = " << i
+        << " j = " << j << " position = " << found << endl;
 }
