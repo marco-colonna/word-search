@@ -14,4 +14,4 @@ One of the primary purposes of this program is to allow me to improve and refine
 
 ## Project Status
 
-This project is in active development, with the minimum goal of weekly commits.
+~~This project is in active development, with the minimum goal of weekly commits.~~
